@@ -13,6 +13,11 @@ end
 service "httpd" do
 	action [:start, :enable]
 end
-cookbook_file "/var/www/html/index.html" do
-	source "index.html"
+# cookbook_file "/var/www/html/index.html" do
+# 	source "index.html"
+# end=end=end
+
+template "/var/www/html/index.html" do
+	source "index.html.erb"
 end
+

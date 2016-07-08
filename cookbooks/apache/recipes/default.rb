@@ -1,4 +1,6 @@
-#
+#C:\Users\Administrator\chef-repo\cookbooks\apache\recipes
+
+
 # Cookbook Name:: apache
 # Recipe:: default
 #
@@ -7,17 +9,17 @@
 # All rights reserved - Do Not Redistribute
 #
 # this is to install apche web server 
-package "httpd" do 
+package node["package_name"] do 
 	action :install	
 end
-service "httpd" do
+service node["service_name"] do
 	action [:start, :enable]
 end
 # cookbook_file "/var/www/html/index.html" do
 # 	source "index.html"
 # end=end=end
 
-template "/var/www/html/index.html" do
+template "#{node["document_root"]}/index.html" do
 	source "index.html.erb"
 end
 
